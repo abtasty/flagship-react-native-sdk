@@ -18,10 +18,10 @@
     "url": "git+https://github.com/abtasty/flagship-react-native-sdk.git"
   },
   "dependencies": {
-    "@flagship.io/react-sdk": "fs-react-sdk-be19cf4f-e534-4f71-94de-62f0d2f3d8f4.tgz",
+    "@flagship.io/react-sdk": "fs-react-sdk-57e5597b-95c6-484b-981e-c0545d1b2eb3.tgz",
     "@react-native-community/async-storage": "^1.11.0",
     "react-native-murmurhash": "^1.0.2",
-    "@flagship.io/js-sdk": "fs-js-sdk-be19cf4f-e534-4f71-94de-62f0d2f3d8f4.tgz"
+    "@flagship.io/js-sdk": "fs-js-sdk-57e5597b-95c6-484b-981e-c0545d1b2eb3.tgz"
   },
   "peerDependencies": {
     "react-native": "^16.8.0"
