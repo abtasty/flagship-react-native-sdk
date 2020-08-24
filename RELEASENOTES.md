@@ -4,6 +4,8 @@
 
 ### New features 🎉
 
+-   Panic mode supported. When you've enabled panic mode through the web dashboard, the SDK will detect it and be in safe mode. Logs will appear to warns you and default values for modifications will be return.
+
 -   The visitor's modifications received either from bucketing or the decision api is saved in the phone cache automatically. This means, your visitor will still see the modifications when offline.
 
 -   Now supports Bucketing behavior:
