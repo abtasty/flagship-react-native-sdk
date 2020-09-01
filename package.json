@@ -1,6 +1,6 @@
 {
   "name": "@flagship.io/react-native-sdk",
-  "version": "1.1.1",
+  "version": "2.0.0",
   "description": "Flagship SDK for React Native",
   "main": "index.js",
   "scripts": {
@@ -18,10 +18,10 @@
     "url": "git+https://github.com/abtasty/flagship-react-native-sdk.git"
   },
   "dependencies": {
-    "@flagship.io/react-sdk": "fs-react-sdk-57e5597b-95c6-484b-981e-c0545d1b2eb3.tgz",
+    "@flagship.io/react-sdk": "fs-react-sdk-d9fe45a4-7a9c-4d73-b1ad-dcabf5b452c2.tgz",
     "@react-native-community/async-storage": "^1.11.0",
     "react-native-murmurhash": "^1.0.2",
-    "@flagship.io/js-sdk": "fs-js-sdk-57e5597b-95c6-484b-981e-c0545d1b2eb3.tgz"
+    "@flagship.io/js-sdk": "fs-js-sdk-d9fe45a4-7a9c-4d73-b1ad-dcabf5b452c2.tgz"
   },
   "peerDependencies": {
     "react-native": "^16.8.0"
