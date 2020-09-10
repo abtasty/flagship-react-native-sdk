@@ -1,50 +1,51 @@
 {
-    "name": "@flagship.io/react-native-sdk",
-    "version": "2.0.0",
-    "description": "Flagship SDK for React Native",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 0",
-        "build": "npm install @flagship.io/react-sdk@latest --save && exit 0",
-        "publish": "npm run update:expo-cli-demo && npm run update:react-cli-demo && git add . && git commit -m\"Post publish update\" && git push",
-        "update:expo-cli-demo": "cd ./examples/expo-cli-demo && npm install @flagship.io/react-native-sdk@latest --save && cd ../../",
-        "update:react-cli-demo": "cd ./examples/react-native-cli-demo && npm install @flagship.io/react-native-sdk@latest --save && cd ../../",
-        "contributors:add": "all-contributors add",
-        "contributors:generate": "all-contributors generate",
-        "release": "np"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/abtasty/flagship-react-native-sdk.git"
-    },
-    "dependencies": {
-        "@flagship.io/react-sdk": "^2.0.0",
-        "@react-native-community/async-storage": "^1.11.0",
-        "react-native-murmurhash": "^1.0.2"
-    },
-    "peerDependencies": {
-        "react-native": "^16.8.0"
-    },
-    "keywords": [
-        "mobile",
-        "react",
-        "native"
-    ],
-    "author": "ABTasty",
-    "homepage": "https://github.com/abtasty/flagship-react-native-sdk#readme",
-    "license": "Apache-2.0",
-    "devDependencies": {
-        "@react-native-community/eslint-config": "^1.1.0",
-        "all-contributors-cli": "^6.17.2",
-        "eslint": "^6.8.0",
-        "eslint-config-prettier": "^6.11.0",
-        "eslint-loader": "^3.0.3",
-        "eslint-plugin-import": "^2.20.2",
-        "eslint-plugin-jsx-a11y": "^6.2.3",
-        "eslint-plugin-react": "^7.19.0",
-        "eslint-plugin-react-hooks": "^4.0.0",
-        "np": "^6.2.3",
-        "prettier": "^2.0.5",
-        "prettier-eslint": "^9.0.1"
-    }
+  "name": "@flagship.io/react-native-sdk",
+  "version": "2.0.0",
+  "description": "Flagship SDK for React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "npm install @flagship.io/react-sdk@latest --save && exit 0",
+    "publish": "npm run update:expo-cli-demo && npm run update:react-cli-demo && git add . && git commit -m\"Post publish update\" && git push",
+    "update:expo-cli-demo": "cd ./examples/expo-cli-demo && npm install @flagship.io/react-native-sdk@latest --save && cd ../../",
+    "update:react-cli-demo": "cd ./examples/react-native-cli-demo && npm install @flagship.io/react-native-sdk@latest --save && cd ../../",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
+    "release": "np"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abtasty/flagship-react-native-sdk.git"
+  },
+  "dependencies": {
+    "@flagship.io/react-sdk": "fs-react-sdk-5140801e-a797-4277-afc8-d4febcbe62f3.tgz",
+    "@react-native-community/async-storage": "^1.11.0",
+    "react-native-murmurhash": "^1.0.2",
+    "@flagship.io/js-sdk": "fs-js-sdk-5140801e-a797-4277-afc8-d4febcbe62f3.tgz"
+  },
+  "peerDependencies": {
+    "react-native": "^16.8.0"
+  },
+  "keywords": [
+    "mobile",
+    "react",
+    "native"
+  ],
+  "author": "ABTasty",
+  "homepage": "https://github.com/abtasty/flagship-react-native-sdk#readme",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^1.1.0",
+    "all-contributors-cli": "^6.17.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "np": "^6.2.3",
+    "prettier": "^2.0.5",
+    "prettier-eslint": "^9.0.1"
+  }
 }
