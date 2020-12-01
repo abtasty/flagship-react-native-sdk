@@ -18,6 +18,7 @@ import {
     checkValidityPatternForEnvId,
     generateFlagshipId
 } from './lib/FSTools';
+import { FlagshipCommon } from '@flagship.io/js-sdk-logs';
 
 const initState = {
     log: null,
@@ -164,12 +165,11 @@ const FlagshipProvider = ({
                     }
                 }}
                 visitorData={{
-                    // Check the visitor id is null ?
+                    ...visitorData,
                     id:
                         visitorData.id == null
-                            ? generateFlagshipId()
-                            : visitorData.id,
-                    context: visitorData.context
+                            ? FlagshipCommon.createVisitorId()
+                            : visitorData.id
                 }}
                 // Update the modifications stored in device's cache
                 onUpdate={(data, fsVisitor) => {

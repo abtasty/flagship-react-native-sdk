@@ -10,6 +10,7 @@ import {
   SetVisitorIdAction,
   visitorContextElement,
   SetVisitorContextAction,
+  SdkSettingsState,
 } from './types';
 
 export const setEnvIdAction = (id: string): SetEnvIdAction => {
@@ -26,7 +27,9 @@ export const setVisitorIdAction = (id: string): SetVisitorIdAction => {
   };
 };
 
-export const updateConfig = (newConfig): {type: string; payload: any} => {
+export const updateConfig = (
+  newConfig: SdkSettingsState,
+): {type: string; payload: any} => {
   return {
     type: SDK_SETTINGS_UPDATE_CONFIG,
     payload: {...newConfig},

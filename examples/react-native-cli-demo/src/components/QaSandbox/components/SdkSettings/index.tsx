@@ -11,7 +11,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {storeData} from '../../../../../src/lib/localStorage';
 import commonStyles, {appColors} from '../../../../assets/commonStyles';
 import {RootState} from '../../../../redux/rootReducer';
-import {apiV1, apiV2} from '../../../../settings';
+import {apiV1, apiV2, apiStagingV2} from '../../../../settings';
 import {RootStackParamList} from '../..//stackContainer';
 import {updateConfig} from './../../../../redux//stuff/sdkSettings/actions';
 import VisitorSettings from './components/VisitorSettings';
@@ -83,6 +83,10 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
 
         <VisitorSettings
           visitorId={visId}
+          isAuthValue={config.isAuthenticated}
+          onChangeAuthenticated={(bool) =>
+            updateLocalConfig((c) => ({...c, isAuthenticated: bool}))
+          }
           onChangeVisId={(txt) => setVisitorId(txt)}
           navigation={navigation}
         />
@@ -95,7 +99,7 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
             thumbColor={config.fetchNow ? 'white' : appColors.red}
             ios_backgroundColor="white"
             onValueChange={() => {
-              updateLocalConfig({...config, fetchNow: !config.fetchNow});
+              updateLocalConfig((c) => ({...c, fetchNow: !config.fetchNow}));
             }}
             value={!!config.fetchNow}
           />
@@ -107,7 +111,10 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
             thumbColor={config.activateNow ? 'white' : appColors.red}
             ios_backgroundColor="white"
             onValueChange={() => {
-              updateLocalConfig({...config, activateNow: !config.activateNow});
+              updateLocalConfig((c) => ({
+                ...c,
+                activateNow: !config.activateNow,
+              }));
             }}
             value={!!config.activateNow}
           />
@@ -119,10 +126,10 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
             thumbColor={config.enableConsoleLogs ? 'white' : appColors.red}
             ios_backgroundColor="white"
             onValueChange={() => {
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 enableConsoleLogs: !config.enableConsoleLogs,
-              });
+              }));
             }}
             value={!!config.enableConsoleLogs}
           />
@@ -134,10 +141,10 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
             thumbColor={config.enableErrorLayout ? 'white' : appColors.red}
             ios_backgroundColor="white"
             onValueChange={() => {
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 enableErrorLayout: !config.enableErrorLayout,
-              });
+              }));
             }}
             value={!!config.enableErrorLayout}
           />
@@ -148,20 +155,20 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
             title={'production'}
             checked={config.nodeEnv === 'production'}
             onPress={() =>
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 nodeEnv: 'production',
-              })
+              }))
             }
           />
           <CheckBox
             title={'development'}
             checked={config.nodeEnv === 'development'}
             onPress={() =>
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 nodeEnv: 'development',
-              })
+              }))
             }
           />
         </View>
@@ -171,20 +178,20 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
             title={'API'}
             checked={config.decisionMode === 'API'}
             onPress={() =>
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 decisionMode: 'API',
-              })
+              }))
             }
           />
           <CheckBox
             title={'Bucketing'}
             checked={config.decisionMode === 'Bucketing'}
             onPress={() =>
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 decisionMode: 'Bucketing',
-              })
+              }))
             }
           />
         </View>
@@ -197,11 +204,11 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
               minimumValue={5}
               step={1}
               onValueChange={(value) =>
-                updateLocalConfig({
-                  ...config,
+                updateLocalConfig((c) => ({
+                  ...c,
                   // pollingInterval: Math.ceil((100 * value) / 10),
                   pollingInterval: value,
-                })
+                }))
               }
             />
             <Text>{config.pollingInterval} second(s)</Text>
@@ -215,10 +222,10 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
             minimumValue={0.01}
             step={0.02}
             onValueChange={(value) =>
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 timeout: value,
-              })
+              }))
             }
           />
           <Text>{config.timeout} second(s)</Text>
@@ -229,35 +236,43 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
             title={apiV1}
             checked={config.flagshipApi === apiV1}
             onPress={() =>
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 flagshipApi: apiV1,
-              })
+              }))
             }
           />
           <CheckBox
             title={apiV2}
             checked={config.flagshipApi === apiV2}
             onPress={() =>
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 flagshipApi: apiV2,
-              })
+              }))
+            }
+          />
+          <CheckBox
+            title={apiStagingV2}
+            checked={config.flagshipApi === apiStagingV2}
+            onPress={() =>
+              updateLocalConfig((c) => ({
+                ...c,
+                flagshipApi: apiStagingV2,
+              }))
             }
           />
           <CheckBox
             title={'custom'}
-            checked={
-              config.flagshipApi !== apiV2 && config.flagshipApi !== apiV1
-            }
+            checked={![apiV1, apiV2, apiStagingV2].includes(config.flagshipApi)}
             onPress={() =>
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 flagshipApi: null,
-              })
+              }))
             }
           />
-          {config.flagshipApi !== apiV2 && config.flagshipApi !== apiV1 && (
+          {![apiV1, apiV2, apiStagingV2].includes(config.flagshipApi) && (
             <Input
               {...commonInputStyle}
               autoCorrect={false}
@@ -266,10 +281,10 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
               value={(config.flagshipApi || '').toString()}
               placeholder="null"
               onChangeText={(txt) =>
-                updateLocalConfig({
-                  ...config,
+                updateLocalConfig((c) => ({
+                  ...c,
                   flagshipApi: txt === '' ? null : txt,
-                })
+                }))
               }
             />
           )}
@@ -285,22 +300,32 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
             value={(config.apiKey || '').toString()}
             placeholder="null"
             onChangeText={(txt) =>
-              updateLocalConfig({
-                ...config,
+              updateLocalConfig((c) => ({
+                ...c,
                 apiKey: txt === '' ? null : txt,
-              })
+              }))
             }
           />
         </View>
         <Button
           title="Save settings"
           containerStyle={[s.mt3, s.mb4]}
-          onPress={() => {
-            storeData('envId', "envId || ''");
-            storeData('visId', "visId || ''");
-            storeData('visContext', 'visitorContext.toString()');
-            dispatch(updateConfig({...config, envId, visitorId: visId,timeout:config.timeout,
-            }));
+          onPress={async () => {
+            try {
+              await storeData('envId', "envId || ''");
+              await storeData('visId', "visId || ''");
+              await storeData('visContext', 'visitorContext.toString()');
+            } catch (error) {
+              console.error('Save settings failed with: ' + error.stack);
+            }
+            dispatch(
+              updateConfig({
+                ...config,
+                envId,
+                visitorId: visId,
+                timeout: config.timeout,
+              }),
+            );
             navigation.navigate('QaSandbox');
           }}
         />

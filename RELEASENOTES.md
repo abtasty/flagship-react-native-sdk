@@ -1,5 +1,11 @@
 # Flagship REACT NATIVE SDK - Release notes
 
+## ➡️ Version 2.0.4 (WIP)
+
+### Improvements 💪
+
+-   Visitor id is now auto generated same way as other Flagship SDK.
+
 ## ➡️ Version 2.0.3
 
 ### New features 🎉

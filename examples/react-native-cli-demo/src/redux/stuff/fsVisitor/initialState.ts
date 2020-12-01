@@ -3,6 +3,7 @@ import {FsVisitorState} from './types';
 const initialState: FsVisitorState = {
   envId: null,
   id: null,
+  isAuthenticated: null,
   context: null,
   isAllModificationsFetched: null,
   bucket: {
