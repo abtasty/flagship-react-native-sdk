@@ -1,6 +1,6 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, View, Switch} from 'react-native';
 import {Col, Grid} from 'react-native-easy-grid';
 import {Badge, Button, Input} from 'react-native-elements';
 import NativeTachyons, {styles as s} from 'react-native-style-tachyons';
@@ -9,7 +9,10 @@ import {useDispatch, useSelector} from 'react-redux';
 import {RootStackParamList} from 'src/components/QaSandbox/stackContainer';
 import {RootState} from 'src/redux/rootReducer';
 
-import {setVisitorContextAction} from '../../../../../../redux/stuff/sdkSettings/actions';
+import {
+  setVisitorContextAction,
+  updateConfig,
+} from '../../../../../../redux/stuff/sdkSettings/actions';
 import {commonIconStyle, commonInputStyle} from './../..';
 import commonStyles, {appColors} from './../../../../../../assets/commonStyles';
 
@@ -32,17 +35,20 @@ type ScreenNavigationProp = StackNavigationProp<
 interface Props {
   visitorId: string | undefined;
   onChangeVisId: (text: string) => void;
+  isAuthValue: boolean;
+  onChangeAuthenticated: (bool: boolean) => void;
   navigation: ScreenNavigationProp;
 }
 
 const VisitorSettings: React.SFC<Props> = ({
   visitorId,
   onChangeVisId,
+  isAuthValue,
+  onChangeAuthenticated,
   navigation,
 }) => {
-  const visitorContext = useSelector(
-    (state: RootState) => state.sdkSettings.visitorContext,
-  );
+  const sdkSettings = useSelector((state: RootState) => state.sdkSettings);
+  const {visitorContext} = sdkSettings;
   const dispatch = useDispatch();
 
   const deleteVisContext = (index) => {
@@ -61,6 +67,7 @@ const VisitorSettings: React.SFC<Props> = ({
   );
   return (
     <View style={[s.mv3]}>
+      {/* VISITOR IMPORTANT CONTAINER */}
       <Input
         {...commonInputStyle}
         label="Visitor ID"
@@ -73,6 +80,32 @@ const VisitorSettings: React.SFC<Props> = ({
         leftIconContainerStyle={[s.mr3]}
         leftIcon={<Icon name="user" {...commonIconStyle} />}
       />
+      {/* VISITOR SETTINGS CONTAINER */}
+      <Grid>
+        <Col size={12}>
+          <View
+            style={[
+              s.flex,
+              s.mv2,
+              s.ph2,
+              s.jcsb,
+              s.aic,
+              {flexDirection: 'row'},
+            ]}>
+            <Text style={[s.f5]}>Is authenticated ?</Text>
+            <Switch
+              thumbColor={isAuthValue ? 'white' : appColors.red}
+              ios_backgroundColor="white"
+              onValueChange={() => {
+                onChangeAuthenticated(!sdkSettings.isAuthenticated);
+              }}
+              value={isAuthValue}
+            />
+          </View>
+        </Col>
+      </Grid>
+
+      {/* VISITOR CONTEXT CONTAINER */}
       <Text style={[s.mt3, s.mh2, s.b, commonStyles.label]}>
         Visitor Context
       </Text>

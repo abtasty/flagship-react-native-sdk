@@ -9,6 +9,7 @@
         "publish": "npm run update:expo-cli-demo && npm run update:react-cli-demo && git add . && git commit -m\"Post publish update\" && git push",
         "update:expo-cli-demo": "cd ./examples/expo-cli-demo && npm install @flagship.io/react-native-sdk@latest --save && cd ../../",
         "update:react-cli-demo": "cd ./examples/react-native-cli-demo && npm install @flagship.io/react-native-sdk@latest --save && cd ../../",
+        "update:fsLog": "npm install @flagship.io/js-sdk-logs@latest --save",
         "contributors:add": "all-contributors add",
         "contributors:generate": "all-contributors generate",
         "release": "np"
@@ -18,7 +19,8 @@
         "url": "git+https://github.com/abtasty/flagship-react-native-sdk.git"
     },
     "dependencies": {
-        "@flagship.io/js-sdk-logs": "^0.1.2",
+        "@flagship.io/js-sdk": "^2.1.8",
+        "@flagship.io/js-sdk-logs": "^0.1.4",
         "@flagship.io/react-sdk": "^2.0.8",
         "@react-native-community/async-storage": "^1.11.0",
         "react": "^16.13.1",

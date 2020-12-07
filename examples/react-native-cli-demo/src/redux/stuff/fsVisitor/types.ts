@@ -14,6 +14,7 @@ export type UpdateFsVisitor = {
 
 export type FsVisitorState = {
   id?: string;
+  anonymousId?: string;
   envId?: string;
   context?: FlagshipVisitorContext;
   isAllModificationsFetched?: boolean;

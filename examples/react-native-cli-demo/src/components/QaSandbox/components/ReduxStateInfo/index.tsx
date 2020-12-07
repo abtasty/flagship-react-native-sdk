@@ -49,6 +49,12 @@ const ReduxStateInfo: React.SFC<Props> = ({navigation}) => {
           <JSONTree data={demo} theme={themeJsonTree} />
         </View>
         <Text style={[s.mt4, s.f3]}>state.fsVisitor:</Text>
+        <Text style={[s.f7, s.b]}>NOTE:</Text>
+
+        <Text style={[s.f7]}>
+          This reducer only shows the data returned by internal React SDK. All
+          changes on the visitor are done in the "sdkSettings" reducer.
+        </Text>
         <View>
           <JSONTree data={fsVisitor} theme={themeJsonTree} />
         </View>
