@@ -78,7 +78,7 @@ NOTE: You can switch between "debug" / "release" variant if you click on "Build 
 
 1.  [Resource and asset merger: Duplicate resources app:mergeReleaseResources](https://github.com/facebook/react-native/issues/22234#issuecomment-437812451)
 
-2.  Edit the `/node_modules/react-native/react.gradle` file and add exactly this:
+2.  Edit the `./node_modules/react-native/react.gradle` file and add exactly this:
 
     ```
     // after "doFirst"
@@ -117,6 +117,12 @@ which executes:
     ```
 
 4.  The .apk is located in **examples/react-native-cli-demo/android/app/build/outputs/apk/debug**
+
+## Trouble shoot
+
+Got error `minified react error #321` ?
+
+> Do `rm -rf ./node_modules && rm ./package-lock.json && npm i`
 
 ## Libraries used
 
