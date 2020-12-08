@@ -85,7 +85,10 @@ const SdkSettings: React.SFC<Props> = ({navigation}) => {
           visitorId={visId}
           isAuthValue={config.isAuthenticated}
           onChangeAuthenticated={(bool) =>
-            updateLocalConfig((c) => ({...c, isAuthenticated: bool}))
+            updateLocalConfig((c) => ({
+              ...c,
+              isAuthenticated: !c.isAuthenticated,
+            }))
           }
           onChangeVisId={(txt) => setVisitorId(txt)}
           navigation={navigation}
