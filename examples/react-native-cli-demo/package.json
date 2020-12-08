@@ -7,6 +7,8 @@
     "ios": "cd ./ios && pod install && cd ../ && react-native run-ios",
     "clear:cache": "watchman watch-del-all && rm -rf $TMPDIR/react-* && rm -rf node_modules/ && npm cache verify && npm install && npm start -- --reset-cache",
     "start": "react-native link && react-native start",
+    "link:icons": "react-native link react-native-vector-icons",
+    "clean:android": "npx react-native run-android warning-mode=all && cd android && ./gradlew clean && cd ../ && npx react-native run-android",
     "create:android:release": "npm run build:android && react-native run-android --variant=release && mv ./android/app/build/outputs/apk/release/app-release.apk ./",
     "create:android:debug": "npm run build:android && react-native run-android --variant=debug && mv ./android/app/build/outputs/apk/debug/app-debug.apk ./",
     "build:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res",
@@ -16,7 +18,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.6",
-    "@flagship.io/react-native-sdk": "^2.0.3",
+    "@flagship.io/react-native-sdk": "fs-react-native-sdk-cd04cffa-250e-4e18-990a-9c3d495f733c.tgz",
     "@react-native-community/async-storage": "^1.8.1",
     "@react-native-community/cli-platform-android": "^4.10.1",
     "@react-native-community/masked-view": "^0.1.6",
@@ -29,7 +31,6 @@
     "@types/react": "^16.9.21",
     "events": "^3.1.0",
     "native-base": "^2.13.8",
-    "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-gesture-handler": "^1.6.0",
     "react-native-json-tree": "^1.2.0",
@@ -39,13 +40,16 @@
     "react-native-safe-area-context": "^0.7.3",
     "react-native-screens": "^2.0.0-beta.8",
     "react-native-style-tachyons": "^4.0.0",
-    "react-native-vector-icons": "^6.6.0",
+    "react-native-vector-icons": "^6.7.0",
     "react-redux": "^7.2.0",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.3.0"
+  },
+  "peerDependencies": {
+    "react": "16.11.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",

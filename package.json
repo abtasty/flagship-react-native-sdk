@@ -1,74 +1,74 @@
 {
-    "name": "@flagship.io/react-native-sdk",
-    "version": "2.0.3",
-    "description": "Flagship SDK for React Native",
-    "main": "index.js",
-    "scripts": {
-        "test": "jest",
-        "build": "npm install @flagship.io/react-sdk@latest --save && exit 0",
-        "publish": "npm run update:expo-cli-demo && npm run update:react-cli-demo && git add . && git commit -m\"Post publish update\" && git push",
-        "update:expo-cli-demo": "cd ./examples/expo-cli-demo && npm install @flagship.io/react-native-sdk@latest --save && cd ../../",
-        "update:react-cli-demo": "cd ./examples/react-native-cli-demo && npm install @flagship.io/react-native-sdk@latest --save && cd ../../",
-        "update:fsLog": "npm install @flagship.io/js-sdk-logs@latest --save",
-        "contributors:add": "all-contributors add",
-        "contributors:generate": "all-contributors generate",
-        "release": "np"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/abtasty/flagship-react-native-sdk.git"
-    },
-    "dependencies": {
-        "@flagship.io/js-sdk": "^2.1.8",
-        "@flagship.io/js-sdk-logs": "^0.1.4",
-        "@flagship.io/react-sdk": "^2.0.8",
-        "@react-native-community/async-storage": "^1.11.0",
-        "react": "^16.13.1",
-        "react-native": "^0.63.2",
-        "react-native-murmurhash": "^1.0.2",
-        "react-test-renderer": "^16.13.1"
-    },
-    "peerDependencies": {
-        "react-native": "^16.8.0"
-    },
-    "keywords": [
-        "mobile",
-        "react",
-        "native"
+  "name": "@flagship.io/react-native-sdk",
+  "version": "2.0.3",
+  "description": "Flagship SDK for React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "npm install @flagship.io/react-sdk@latest --save && exit 0",
+    "publish": "npm run update:expo-cli-demo && npm run update:react-cli-demo && git add . && git commit -m\"Post publish update\" && git push",
+    "update:expo-cli-demo": "cd ./examples/expo-cli-demo && npm install @flagship.io/react-native-sdk@latest --save && cd ../../",
+    "update:react-cli-demo": "cd ./examples/react-native-cli-demo && npm install @flagship.io/react-native-sdk@latest --save && cd ../../",
+    "update:fsLog": "npm install @flagship.io/js-sdk-logs@latest --save",
+    "contributors:add": "all-contributors add",
+    "contributors:generate": "all-contributors generate",
+    "release": "np"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/abtasty/flagship-react-native-sdk.git"
+  },
+  "dependencies": {
+    "@flagship.io/js-sdk": "fs-js-sdk-cd04cffa-250e-4e18-990a-9c3d495f733c.tgz",
+    "@flagship.io/js-sdk-logs": "^0.1.4",
+    "@flagship.io/react-sdk": "fs-react-sdk-cd04cffa-250e-4e18-990a-9c3d495f733c.tgz",
+    "@react-native-community/async-storage": "^1.11.0",
+    "react": "^16.13.1",
+    "react-native": "^0.63.2",
+    "react-native-murmurhash": "^1.0.2",
+    "react-test-renderer": "^16.13.1"
+  },
+  "peerDependencies": {
+    "react-native": "^16.8.0"
+  },
+  "keywords": [
+    "mobile",
+    "react",
+    "native"
+  ],
+  "author": "ABTasty",
+  "homepage": "https://github.com/abtasty/flagship-react-native-sdk#readme",
+  "license": "Apache-2.0",
+  "devDependencies": {
+    "@babel/core": "^7.10.4",
+    "@react-native-community/eslint-config": "^1.1.0",
+    "@testing-library/jest-native": "^3.1.0",
+    "@testing-library/react-hooks": "^3.4.1",
+    "all-contributors-cli": "^6.17.2",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^3.0.3",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "jest": "^26.4.2",
+    "jest-react-native": "^18.0.0",
+    "np": "^6.2.3",
+    "prettier": "^2.0.5",
+    "prettier-eslint": "^9.0.1"
+  },
+  "jest": {
+    "preset": "react-native",
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
     ],
-    "author": "ABTasty",
-    "homepage": "https://github.com/abtasty/flagship-react-native-sdk#readme",
-    "license": "Apache-2.0",
-    "devDependencies": {
-        "@babel/core": "^7.10.4",
-        "@react-native-community/eslint-config": "^1.1.0",
-        "@testing-library/jest-native": "^3.1.0",
-        "@testing-library/react-hooks": "^3.4.1",
-        "all-contributors-cli": "^6.17.2",
-        "eslint": "^6.8.0",
-        "eslint-config-prettier": "^6.11.0",
-        "eslint-loader": "^3.0.3",
-        "eslint-plugin-import": "^2.20.2",
-        "eslint-plugin-jsx-a11y": "^6.2.3",
-        "eslint-plugin-react": "^7.19.0",
-        "eslint-plugin-react-hooks": "^4.0.0",
-        "jest": "^26.4.2",
-        "jest-react-native": "^18.0.0",
-        "np": "^6.2.3",
-        "prettier": "^2.0.5",
-        "prettier-eslint": "^9.0.1"
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
     },
-    "jest": {
-        "preset": "react-native",
-        "setupFilesAfterEnv": [
-            "@testing-library/jest-native/extend-expect"
-        ],
-        "transform": {
-            "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
-        },
-        "testPathIgnorePatterns": [
-            "example"
-        ],
-        "automock": false
-    }
+    "testPathIgnorePatterns": [
+      "example"
+    ],
+    "automock": false
+  }
 }
