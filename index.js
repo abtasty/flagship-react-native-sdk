@@ -191,11 +191,6 @@ const FlagshipProvider = ({
     }
 
     const determineVisitorAnonymousId = () => {
-        // first of all, if an id is specified, leave
-        if (visitorData.id) {
-            return null;
-        }
-
         // check if something local storage
         if (state.phoneCache?.visitor?.anonymousId) {
             return state.phoneCache.visitor.anonymousId;
