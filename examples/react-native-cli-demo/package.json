@@ -18,7 +18,7 @@
   },
   "dependencies": {
     "@expo/vector-icons": "^10.0.6",
-    "@flagship.io/react-native-sdk": "fs-react-native-sdk-70130a60-5389-4190-a195-b1366fc4c2b0.tgz",
+    "@flagship.io/react-native-sdk": "fs-react-native-sdk-67dac673-044a-4f43-8d0c-c162d74f58f6.tgz",
     "@react-native-community/async-storage": "^1.8.1",
     "@react-native-community/cli-platform-android": "^4.10.1",
     "@react-native-community/masked-view": "^0.1.6",
