@@ -3,6 +3,7 @@ import {FlagshipSdkConfig} from '@flagship.io/js-sdk';
 export interface SdkSettingsState extends FlagshipSdkConfig {
   envId: string | undefined;
   visitorId: string | undefined;
+  isAuthenticated: boolean;
   visitorContext: Array<visitorContextElement>;
   fetchNow: boolean;
   pollingInterval: number | null;

@@ -13,6 +13,8 @@ import QaSbStackContainer from '../QaSandbox/stackContainer';
 import {updateFsVisitor} from '../../redux/stuff/fsVisitor/actions';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
 import LocalNotification from 'react-native-local-notification';
+import {useEffect} from 'react';
+import {useState} from 'react';
 
 // REACT NAVIGATION: begin
 const Tab = createBottomTabNavigator();
@@ -35,10 +37,21 @@ const FlagshipWrapper = () => {
   const safeModeRedux = useSelector((state: RootState) => state.demo.safeMode);
   const dispatch = useDispatch();
   const context: {[key: string]: number | boolean | string} = {};
+
   sdkSettings.visitorContext.forEach(({key, value}) => {
     context[key] = value;
   });
   const inputRef = React.useRef('localNotification');
+
+  useEffect(() => {
+    inputRef?.current?.showNotification &&
+      inputRef?.current?.showNotification({
+        title: 'Settings updated',
+        text: '',
+        onPress: () => console.log('onPress'),
+        onHide: () => console.log('onHide'),
+      });
+  }, [sdkSettings]);
   return (
     <SafeAreaProvider>
       <SafeAreaView style={{flex: 1, position: 'relative'}}>
@@ -48,10 +61,17 @@ const FlagshipWrapper = () => {
           <FlagshipProvider
             envId={sdkSettings.envId || ''}
             apiKey={sdkSettings.apiKey}
-            onUpdate={({fsModifications}, fsVisitor) => {
+            onUpdate={({fsModifications, ...other}, fsVisitor) => {
               dispatch(updateFsVisitor(fsVisitor));
               if (safeModeRedux.triggerTest) {
                 throw new Error('Crash test react native');
+              } else {
+                // inputRef.current.showNotification({
+                //   title: '[dev] onUpdate triggered',
+                //   text: '',
+                //   onPress: () => console.log('onPress'),
+                //   onHide: () => console.log('onHide'),
+                // });
               }
             }}
             fetchNow={sdkSettings.fetchNow}
@@ -86,6 +106,7 @@ const FlagshipWrapper = () => {
             visitorData={{
               id: sdkSettings.visitorId || '',
               context,
+              isAuthenticated: sdkSettings.isAuthenticated,
             }}>
             <Tab.Navigator>
               <Tab.Screen

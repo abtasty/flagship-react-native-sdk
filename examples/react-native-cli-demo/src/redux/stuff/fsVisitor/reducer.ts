@@ -18,6 +18,7 @@ const FsVisitorReducer = (
       return {
         envId: action.payload.envId,
         id: action.payload.id,
+        anonymousId: action.payload.anonymousId,
         context: action.payload.context,
         isAllModificationsFetched: action.payload.isAllModificationsFetched,
         bucket: {
