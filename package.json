@@ -19,9 +19,8 @@
     "url": "git+https://github.com/abtasty/flagship-react-native-sdk.git"
   },
   "dependencies": {
-    "@flagship.io/js-sdk": "fs-js-sdk-67dac673-044a-4f43-8d0c-c162d74f58f6.tgz",
     "@flagship.io/js-sdk-logs": "^0.1.4",
-    "@flagship.io/react-sdk": "fs-react-sdk-67dac673-044a-4f43-8d0c-c162d74f58f6.tgz",
+    "@flagship.io/react-sdk": "https://github.com/abtasty/flagship-react-sdk.git#VR",
     "@react-native-community/async-storage": "^1.11.0",
     "react": "^16.13.1",
     "react-native": "^0.63.2",
