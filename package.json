@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@flagship.io/js-sdk-logs":"^0.1.4",
-    "@flagship.io/react-sdk":"https://github.com/abtasty/flagship-react-sdk.git#zz",
+    "@flagship.io/react-sdk":"https://github.com/abtasty/flagship-react-sdk.git#VR",
     "@react-native-community/async-storage": "^1.11.0",
     "react": "^16.13.1",
     "react-native": "^0.63.2",
